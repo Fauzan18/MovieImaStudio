@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerMovieSearch;
     @BindView(R.id.linearlayout)
     LinearLayout linearlayout;
-
+    boolean a = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             private void getMovie() {
                 String query = edtSearch.getText().toString();
                 if (query.isEmpty()){
-                    edtSearch.setError("Tidak Bisa KoSong Goblok !");
+                    edtSearch.setError("Tidak Bisa KoSong !");
                 } else {
                     ApiService service = ConfigRetrofit.getClient().create(ApiService.class);
                     Call<ResponseSearch> call = service.searchMovie(CONSTANT.APIKEY, CONSTANT.LANGUAGE, query);
