@@ -26,18 +26,18 @@ public class AdapterMovieSearch extends RecyclerView.Adapter<AdapterMovieSearch.
 
     Context context;
     List<ResultsItem> dataMovie;
-    LayoutInflater inflater;
+    //LayoutInflater inflater;
 
     public AdapterMovieSearch(Context context, List<ResultsItem> dataMovie) {
         this.context = context;
-        this.inflater = LayoutInflater.from(context);
+        //this.inflater = LayoutInflater.from(context);
         this.dataMovie = dataMovie;
     }
 
     @Override
     public AdapterMovieSearch.MyHolder onCreateViewHolder( ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.item_movie, parent, false);
-        return new  MyHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
+        return new MyHolder(view);
     }
 
     @Override
@@ -75,8 +75,8 @@ public class AdapterMovieSearch extends RecyclerView.Adapter<AdapterMovieSearch.
         public MyHolder(View itemView) {
             super(itemView);
 
-            imgMovie = (ImageView)itemView.findViewById(R.id.imgMovie);
-            tvTitle = (TextView)itemView.findViewById(R.id.tvJudulMovie);
+            imgMovie = (ImageView)itemView.findViewById(R.id.img_movie);
+            tvTitle = (TextView)itemView.findViewById(R.id.tv_judul_movie);
 
         }
     }

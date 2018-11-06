@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerMovieSearch;
     @BindView(R.id.linearlayout)
     LinearLayout linearlayout;
-    boolean a = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,34 +54,35 @@ public class MainActivity extends AppCompatActivity {
                 getMovie();
             }
 
-            private void getMovie() {
-                String query = edtSearch.getText().toString();
-                if (query.isEmpty()){
-                    edtSearch.setError("Tidak Bisa KoSong !");
-                } else {
-                    ApiService service = ConfigRetrofit.getClient().create(ApiService.class);
-                    Call<ResponseSearch> call = service.searchMovie(CONSTANT.APIKEY, CONSTANT.LANGUAGE, query);
-                    call.enqueue(new Callback<ResponseSearch>() {
-                        @Override
-                        public void onResponse(Call<ResponseSearch> call, Response<ResponseSearch> response) {
-                            List<ResultsItem> dataMovie = response.body().getResults();
-                            String data1 = response.body().getResults().toString();
-                            ResponseSearch responseSearch = response.body();
-                            Log.d("","onResponse data: "+ dataMovie);
-                            AdapterMovieSearch adapterMovie = new AdapterMovieSearch(MainActivity.this, dataMovie);
-                            recyclerMovieSearch.setAdapter(adapterMovie);
-                        }
 
-                        @Override
-                        public void onFailure(Call<ResponseSearch> call, Throwable t) {
-
-                        }
-                    });
-
-                }
-            }
         });
 
 
+    }
+
+    private void getMovie() {
+
+        String query = edtSearch.getText().toString();
+
+        if (query.isEmpty()){
+            edtSearch.setError("Tidak Bisa KoSong !");
+        } else {
+            ApiService service = ConfigRetrofit.getClient().create(ApiService.class);
+            Call<ResponseSearch> call = service.searchMovie(CONSTANT.APIKEY, CONSTANT.LANGUAGE, query);
+            call.enqueue(new Callback<ResponseSearch>() {
+                @Override
+                public void onResponse(Call<ResponseSearch> call, Response<ResponseSearch> response) {
+                    List<ResultsItem> dataMovie = response.body().getResults();
+                    AdapterMovieSearch adapterMovie = new AdapterMovieSearch(MainActivity.this, dataMovie);
+                    recyclerMovieSearch.setAdapter(adapterMovie);
+                }
+
+                @Override
+                public void onFailure(Call<ResponseSearch> call, Throwable t) {
+
+                }
+            });
+
+        }
     }
 }
