@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mobile.fauzanibnusarky.movieimastudio.BuildConfig;
 import com.mobile.fauzanibnusarky.movieimastudio.Detail.DetailActivity;
 import com.mobile.fauzanibnusarky.movieimastudio.MainActivity;
 import com.mobile.fauzanibnusarky.movieimastudio.Network.CONSTANT;
@@ -46,7 +47,7 @@ public class AdapterMovieSearch extends RecyclerView.Adapter<AdapterMovieSearch.
         holder.tvTitle.setText(item.getOriginalTitle());
         Log.d(TAG, "onBindViewHolder: " + item.getOriginalTitle());
         Picasso.with(context)
-                .load(CONSTANT.IMAGE_URL + item.getPosterPath())
+                .load(BuildConfig.IMAGE_URL + item.getPosterPath())
                 .placeholder(R.drawable.ic_launcher_foreground)
                 .error(R.drawable.ic_launcher_foreground)
                 .resize(50, 50)
@@ -57,8 +58,8 @@ public class AdapterMovieSearch extends RecyclerView.Adapter<AdapterMovieSearch.
             @Override
             public void onClick(View view) {
                 Intent kirimData = new Intent(context, DetailActivity.class);
-                kirimData.putExtra(CONSTANT.KEYNAMA, item.getOriginalTitle());
-                kirimData.putExtra(CONSTANT.KEYGAMBAR, item.getPosterPath());
+                kirimData.putExtra(BuildConfig.KEYNAME, item.getOriginalTitle());
+                kirimData.putExtra(BuildConfig.KEYGAMBAR, item.getPosterPath());
                 context.startActivity(kirimData);
 
             }

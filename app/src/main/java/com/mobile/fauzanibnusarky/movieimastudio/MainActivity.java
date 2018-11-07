@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
             edtSearch.setError("Tidak Bisa KoSong !");
         } else {
             ApiService service = ConfigRetrofit.getClient().create(ApiService.class);
-            Call<ResponseSearch> call = service.searchMovie(CONSTANT.APIKEY, CONSTANT.LANGUAGE, query);
+            Call<ResponseSearch> call = service.searchMovie(BuildConfig.APIKEY, BuildConfig.LANGUAGE, query);
             call.enqueue(new Callback<ResponseSearch>() {
                 @Override
                 public void onResponse(Call<ResponseSearch> call, Response<ResponseSearch> response) {
