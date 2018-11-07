@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.mobile.fauzanibnusarky.movieimastudio.BuildConfig;
 import com.mobile.fauzanibnusarky.movieimastudio.Detail.DetailActivity;
+import com.mobile.fauzanibnusarky.movieimastudio.Pojo.ResultsItem;
 import com.mobile.fauzanibnusarky.movieimastudio.R;
 import com.squareup.picasso.Picasso;
 
