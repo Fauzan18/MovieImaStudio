@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-            recyclerMovieSearch.setLayoutManager(new GridLayoutManager(MainActivity.this,2));
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT) {
+            recyclerMovieSearch.setLayoutManager(new GridLayoutManager(MainActivity.this, 2));
         } else {
-            recyclerMovieSearch.setLayoutManager(new GridLayoutManager(MainActivity.this,4));
+            recyclerMovieSearch.setLayoutManager(new GridLayoutManager(MainActivity.this, 4));
         }
 
         btnSearch.setOnClickListener(new View.OnClickListener() {
@@ -64,10 +64,10 @@ public class MainActivity extends AppCompatActivity {
 
         String query = edtSearch.getText().toString();
 
-        if (query.isEmpty()){
+        if (query.isEmpty()) {
             edtSearch.setError("Tidak Bisa KoSong !");
         } else {
-            ApiService service = ConfigRetrofit.getClient().create(ApiService.class);
+            ApiService service = ConfigRetrofit.getInstance();
             Call<ResponseSearch> call = service.searchMovie(BuildConfig.APIKEY, BuildConfig.LANGUAGE, query);
             call.enqueue(new Callback<ResponseSearch>() {
                 @Override
