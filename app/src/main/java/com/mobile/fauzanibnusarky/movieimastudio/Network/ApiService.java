@@ -1,7 +1,5 @@
 package com.mobile.fauzanibnusarky.movieimastudio.Network;
 
-import com.mobile.fauzanibnusarky.movieimastudio.Pojo.ResponseSearch;
-
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;

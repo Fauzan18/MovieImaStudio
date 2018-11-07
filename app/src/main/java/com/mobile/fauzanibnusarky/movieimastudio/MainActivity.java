@@ -12,10 +12,7 @@ import android.widget.LinearLayout;
 
 import com.mobile.fauzanibnusarky.movieimastudio.Adapter.AdapterMovieSearch;
 import com.mobile.fauzanibnusarky.movieimastudio.Network.ApiService;
-import com.mobile.fauzanibnusarky.movieimastudio.Network.CONSTANT;
 import com.mobile.fauzanibnusarky.movieimastudio.Network.ConfigRetrofit;
-import com.mobile.fauzanibnusarky.movieimastudio.Pojo.ResponseSearch;
-import com.mobile.fauzanibnusarky.movieimastudio.Pojo.ResultsItem;
 
 import java.util.List;
 

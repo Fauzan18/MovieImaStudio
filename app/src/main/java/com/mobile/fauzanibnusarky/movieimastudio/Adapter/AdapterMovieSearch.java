@@ -2,7 +2,6 @@ package com.mobile.fauzanibnusarky.movieimastudio.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -13,9 +12,6 @@ import android.widget.TextView;
 
 import com.mobile.fauzanibnusarky.movieimastudio.BuildConfig;
 import com.mobile.fauzanibnusarky.movieimastudio.Detail.DetailActivity;
-import com.mobile.fauzanibnusarky.movieimastudio.MainActivity;
-import com.mobile.fauzanibnusarky.movieimastudio.Network.CONSTANT;
-import com.mobile.fauzanibnusarky.movieimastudio.Pojo.ResultsItem;
 import com.mobile.fauzanibnusarky.movieimastudio.R;
 import com.squareup.picasso.Picasso;
 

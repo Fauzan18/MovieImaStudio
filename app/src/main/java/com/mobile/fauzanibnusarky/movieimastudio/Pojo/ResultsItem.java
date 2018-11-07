@@ -1,7 +1,9 @@
 package com.mobile.fauzanibnusarky.movieimastudio.Pojo;
 
-import java.util.List;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
 
 public class ResultsItem{
 
@@ -33,7 +35,7 @@ public class ResultsItem{
 	private String releaseDate;
 
 	@SerializedName("vote_average")
-	private int voteAverage;
+	private double voteAverage;
 
 	@SerializedName("popularity")
 	private double popularity;
@@ -119,11 +121,11 @@ public class ResultsItem{
 		return releaseDate;
 	}
 
-	public void setVoteAverage(int voteAverage){
+	public void setVoteAverage(double voteAverage){
 		this.voteAverage = voteAverage;
 	}
 
-	public int getVoteAverage(){
+	public double getVoteAverage(){
 		return voteAverage;
 	}
 
